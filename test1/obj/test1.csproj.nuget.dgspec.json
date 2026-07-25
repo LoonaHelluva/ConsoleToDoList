@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "e:\\Code\\Test\\test1\\test1.csproj": {}
+    "E:\\Code\\MyProject\\ConsoleToDoList\\test1\\test1.csproj": {}
   },
   "projects": {
-    "e:\\Code\\Test\\test1\\test1.csproj": {
+    "E:\\Code\\MyProject\\ConsoleToDoList\\test1\\test1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "e:\\Code\\Test\\test1\\test1.csproj",
+        "projectUniqueName": "E:\\Code\\MyProject\\ConsoleToDoList\\test1\\test1.csproj",
         "projectName": "test1",
-        "projectPath": "e:\\Code\\Test\\test1\\test1.csproj",
+        "projectPath": "E:\\Code\\MyProject\\ConsoleToDoList\\test1\\test1.csproj",
         "packagesPath": "C:\\Users\\mussa\\.nuget\\packages\\",
-        "outputPath": "e:\\Code\\Test\\test1\\obj\\",
+        "outputPath": "E:\\Code\\MyProject\\ConsoleToDoList\\test1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mussa\\AppData\\Roaming\\NuGet\\NuGet.Config"

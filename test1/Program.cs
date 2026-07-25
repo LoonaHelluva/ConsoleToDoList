@@ -46,14 +46,8 @@ class Program
             }
         }
 
-        //check
-        Console.Clear();
-        foreach (var task in tasks)
-        {
-            string isDone = task.isCompleted ? "[V]" : "[ ]";
-            int id = tasks.IndexOf(task);
-            Console.WriteLine($"{id} {isDone} {task.name}");
-        }
+        //Last Call
+        Refresh();
     }
 
     static void Refresh()
