@@ -11,22 +11,4 @@ public class Task
         Name = name;
         IsCompleted = false;
     }
-
-    public bool Rename(string newName)
-    {
-        try
-        {
-            Name = newName;
-            return true;
-        }
-        catch (Exception)
-        {
-            return false;
-        }
-    }
-
-    public void Complete()
-    {
-        IsCompleted = true;
-    }
 }

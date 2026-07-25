@@ -23,19 +23,27 @@ class Program
                         break;
 
                     case "R":
-                        tasks[GetId()].Name = GetName();
-                        FileService.Save(tasks);
+                        if (tasks.Count != 0)
+                        {
+                            tasks[GetId()].Name = GetName();
+                            FileService.Save(tasks);
+                        }
                         break;
 
                     case "C":
-                        int id = GetId();
-                        tasks[id].IsCompleted = tasks[id].IsCompleted ? false : true;
-                        FileService.Save(tasks);
+                        if (tasks.Count != 0)
+                        {
+                            tasks[GetId()].IsCompleted = !tasks[GetId()].IsCompleted;
+                            FileService.Save(tasks);
+                        }                        
                         break;
 
                     case "D":
-                        tasks.RemoveAt(GetId());
-                        FileService.Save(tasks);
+                        if (tasks.Count != 0)
+                        {
+                            tasks.RemoveAt(GetId());
+                            FileService.Save(tasks);
+                        }                        
                         break;
                 }
             }
@@ -77,10 +85,9 @@ class Program
     static int GetId()
     {
         int id = StrToNum();
-
         //checking if id is not out of range of tasks
 
-        while (id > tasks.Count - 1)
+        while (id < 0 || id > tasks.Count - 1)
         {
             Console.WriteLine("There is no such task");
             id = StrToNum();
@@ -88,7 +95,7 @@ class Program
 
         return id;
     }
-    
+
     static int StrToNum()
     {
         //getting number fron user input
