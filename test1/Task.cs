@@ -50,7 +50,7 @@ public class Task
         while (!int.TryParse(Console.ReadLine(), out id))
         {
             System.Console.WriteLine("Task id can't be empty, or letter, it have to be number");
-            Console.Write("Which task to rename?: ");
+            Console.Write("Wich task to choose: ");
         }
 
         return id;

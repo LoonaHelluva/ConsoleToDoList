@@ -23,14 +23,13 @@ class Program
                         break;
 
                     case "R":
-                        int id = Task.GetId();
-                        string name = Task.GetName();
-                        tasks[id].name = name;
+                        tasks[Task.GetId()].name = Task.GetName();
                         FileService.Save(tasks);
                         break;
 
                     case "C":
-                        tasks[Task.GetId()].isCompleted = tasks[Task.GetId()].isCompleted ? false : true;
+                        int id = Task.GetId();
+                        tasks[id].isCompleted = tasks[id].isCompleted ? false : true;
                         FileService.Save(tasks);
                         break;
 
@@ -48,20 +47,19 @@ class Program
         }
 
         //check
-        //Console.Clear();
+        Console.Clear();
         foreach (var task in tasks)
         {
             string isDone = task.isCompleted ? "[V]" : "[ ]";
             int id = tasks.IndexOf(task);
             Console.WriteLine($"{id} {isDone} {task.name}");
         }
-        Console.ReadKey();
     }
 
     static void Refresh()
     {
         tasks = FileService.GetTasks();
-        //Console.Clear();
+        Console.Clear();
         foreach (var task in tasks)
         {
             string isDone = task.isCompleted ? "[V]" : "[ ]";
