@@ -19,7 +19,6 @@ public static class FileService
     }
     public static void Save(List<Task> tasks)
     {
-        File.WriteAllText(path, string.Empty);
         string json = JsonSerializer.Serialize(tasks, options);
         File.WriteAllText(path, json);
     }

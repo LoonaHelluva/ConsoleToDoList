@@ -17,25 +17,24 @@ class Program
                 switch (input)
                 {
                     case "A":
-                        Task task = new Task(Task.GetName());
+                        Task task = new Task(GetName());
                         tasks.Add(task);
                         FileService.Save(tasks);
                         break;
 
                     case "R":
-                        tasks[Task.GetId()].name = Task.GetName();
+                        tasks[GetId()].Name = GetName();
                         FileService.Save(tasks);
                         break;
 
                     case "C":
-                        int id = Task.GetId();
-                        tasks[id].isCompleted = tasks[id].isCompleted ? false : true;
+                        int id = GetId();
+                        tasks[id].IsCompleted = tasks[id].IsCompleted ? false : true;
                         FileService.Save(tasks);
                         break;
 
                     case "D":
-                        Task t = tasks[Task.GetId()];
-                        tasks.Remove(t);
+                        tasks.RemoveAt(GetId());
                         FileService.Save(tasks);
                         break;
                 }
@@ -56,9 +55,50 @@ class Program
         Console.Clear();
         foreach (var task in tasks)
         {
-            string isDone = task.isCompleted ? "[V]" : "[ ]";
+            string isDone = task.IsCompleted ? "[V]" : "[ ]";
             int id = tasks.IndexOf(task);
-            Console.WriteLine($"{id} {isDone} {task.name}");
+            Console.WriteLine($"{id} {isDone} {task.Name}");
         }
+    }
+
+    static string GetName()
+    {
+        Console.Write("Enter task's name: ");
+        string? name = Console.ReadLine();
+        while (string.IsNullOrEmpty(name))
+        {
+            Console.WriteLine("Task's name can't be empty.");
+            Console.Write("Enter task's name: ");
+            name = Console.ReadLine();
+        }
+        return name;
+    }
+
+    static int GetId()
+    {
+        int id = StrToNum();
+
+        //checking if id is not out of range of tasks
+
+        while (id > tasks.Count - 1)
+        {
+            Console.WriteLine("There is no such task");
+            id = StrToNum();
+        }
+
+        return id;
+    }
+    
+    static int StrToNum()
+    {
+        //getting number fron user input
+        Console.Write("Enter task id: ");
+        int num;
+        while (!int.TryParse(Console.ReadLine(), out num))
+        {
+            Console.WriteLine("Task id can't be empty, or letter, it have to be number");
+            Console.Write("Wich task to choose: ");
+        }
+        return num;
     }
 }
