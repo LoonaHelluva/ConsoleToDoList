@@ -28,14 +28,25 @@ class Program
                             tasks[GetId()].Name = GetName();
                             FileService.Save(tasks);
                         }
+                        else
+                        {
+                            System.Console.WriteLine("List is empty, add tasks first (press any button to continue)");
+                            Console.ReadKey();
+                        }
                         break;
 
                     case "C":
                         if (tasks.Count != 0)
                         {
-                            tasks[GetId()].IsCompleted = !tasks[GetId()].IsCompleted;
+                            int id = GetId();
+                            tasks[id].IsCompleted = !tasks[id].IsCompleted;
                             FileService.Save(tasks);
-                        }                        
+                        }
+                        else
+                        {
+                            System.Console.WriteLine("List is empty, add tasks first (press any button to continue)");
+                            Console.ReadKey();
+                        }                     
                         break;
 
                     case "D":
@@ -43,7 +54,12 @@ class Program
                         {
                             tasks.RemoveAt(GetId());
                             FileService.Save(tasks);
-                        }                        
+                        }
+                        else
+                        {
+                            System.Console.WriteLine("List is empty, add tasks first (press any button to continue)");
+                            Console.ReadKey();
+                        }                       
                         break;
                 }
             }
